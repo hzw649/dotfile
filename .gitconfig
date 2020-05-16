@@ -1,0 +1,19 @@
+# This is Git's per-user configuration file.
+[user]
+	name = hzw649
+	email = 995904436@qq.com
+[http]
+[credential]
+	helper = store
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[alias]
+	s = status -s
+	l = log --pretty=oneline -n 20 --graph --abbrev-commit
+[core]
+	excludesfile = ~/.gitignore
+	attributesfile = ~/.gitattributes
+
