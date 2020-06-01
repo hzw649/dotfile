@@ -14,9 +14,9 @@ Plug 'Yggdroot/indentLine'
 Plug 'scrooloose/nerdtree'
 Plug 'Lokaltog/vim-powerline'
 
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
-Plug 'suan/vim-instant-markdown', 	{'for': 'markdown'}
+"Plug 'godlygeek/tabular'
+"Plug 'plasticboy/vim-markdown'
+"Plug 'suan/vim-instant-markdown', 	{'for': 'markdown'}
 "Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang',  'for': ['c', 'cpp'] }
 "Plug 'vim-syntastic/syntastic'
 call plug#end()
@@ -38,11 +38,7 @@ set fdm=marker
 set laststatus=2
 set hlsearch
 set cursorline
-if expand("%:e")=="py"
-	set expandtab
-endif
-
-
+set expandtab
 set wildmenu
 
 " compile and run-------------
@@ -69,21 +65,11 @@ func! Run()
 		exec "!time java %<"
 	endif
 endfunc
-map <F9> :call Compile()<CR>
-map <F10> :call Run()<CR>
+noremap <F9> :call Compile()<CR>
+noremap <F10> :call Run()<CR>
+noremap + <C-W>10+
+noremap - <C-W>10-
 
-call pathogen#infect()
-let g:templates_directory = ['~/.vim/templates',]
-let g:templates_user_variables = [['EMAIL', 'GetMail'], ['FULLPATH', 'GetFullPath']]
-
-function GetMail()
-    return 'pylego@hotmail.com'
-endfunction
-
-function GetFullPath()
-    return expand('%:p')
-endfunction
-			
 "NERDTree
 "F2开启和关闭树"
 map <F2> :NERDTreeToggle<CR>
@@ -94,31 +80,17 @@ let NERDTreeShowBookmarks=1
 let NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$']
 "窗口大小"
 let NERDTreeWinSize=25
-"缩进指示线"
+"indentLine
 let g:indentLine_char='|'
 let g:indentLine_enabled = 1
+let g:indentLine_setConceal = 1
+let g:indentLine_conceallevel = 2
+let g:indentLine_concealcursor = ' '
 
 
-syn match cClasses "\<a-zA-Z_][a-zA-Z_0-9]*\>\."me=e-1
-syn match cFunctions "\<[a-zA-Z_][a-zA-Z_0-9]*\>\s*("me=e-1
-hi cFunctions guifg=#00BFFF 
-
-let g:instant_markdown_slow = 1
-let g:instant_markdown_autostart = 0
-map <F4> :InstantMarkdownPreview<CR>
-
-
-"Syntastic
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_cpp_compiler = 'g++'
-let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libc++'
+"let g:instant_markdown_slow = 1
+"let g:instant_markdown_autostart = 0
+"map <F4> :InstantMarkdownPreview<CR>
 
 
 
