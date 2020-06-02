@@ -40,6 +40,7 @@ set hlsearch
 set cursorline
 set expandtab
 set wildmenu
+set wildmode=list:longest
 
 " compile and run-------------
 func! Compile()
