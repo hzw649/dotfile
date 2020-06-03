@@ -14,6 +14,7 @@
 	s = status -s
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
 	g = grep -c
+    c = clone
 [core]
 	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes
