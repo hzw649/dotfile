@@ -13,6 +13,8 @@ Plug 'mhartington/oceanic-next'
 Plug 'Yggdroot/indentLine'
 Plug 'scrooloose/nerdtree'
 Plug 'Lokaltog/vim-powerline'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 
 "Plug 'godlygeek/tabular'
 "Plug 'plasticboy/vim-markdown'
@@ -103,3 +105,27 @@ set completeopt=longest,menu    "让Vim的补全菜单行为与一般IDE一致(�
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif "离开插入模式后自动关闭预览窗口  
 inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"     
 
+"nerdcommenter
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' }}
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+" Enable NERDCommenterToggle to check all selected lines is commented or not
+let g:NERDToggleCheckAllLines = 1
