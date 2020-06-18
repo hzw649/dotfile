@@ -16,6 +16,7 @@
 	g = grep 
     c = clone --recursive
     chk = checkout
+    b = branch
 [core]
 	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes
