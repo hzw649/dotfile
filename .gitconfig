@@ -15,6 +15,7 @@
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
 	g = grep 
     c = clone --recursive
+    chk = checkout
 [core]
 	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes
