@@ -13,10 +13,11 @@
 [alias]
 	s = status -s
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
-	g = grep 
+	g = grep -n  
     c = clone --recursive
     chk = checkout
     b = branch
+    d = diff
 [core]
 	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes
