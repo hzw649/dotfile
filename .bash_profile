@@ -43,9 +43,6 @@ PATH=$PATH:$M2_HOME/bin
 JUNIT_HOME=$HOME/package
 CLASSPATH=$CLASSPATH:$JUNIT_HOME/junit5.jar
 
-
-TERM=xterm-color;
-export TERM
-
 export PATH=${PATH}:/usr/local/mysql/bin
 export PATH=${PATH}:/usr/local/mysql/support-files/
+export TERM=xterm-256color
