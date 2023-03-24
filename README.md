@@ -16,3 +16,8 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 
 # Set ZSH_THEME="powerlevel10k/powerlevel10k" in ~/.zshrc.
 ```
+
+### useful tool
+```
+sudo apt install hstr
+``
