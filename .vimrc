@@ -8,6 +8,7 @@ set number
 set t_Co=256
 set completeopt-=preview
 set shortmess+=I
+
 call plug#begin('~/.vim/plugged')
 Plug 'mhartington/oceanic-next'
 Plug 'Yggdroot/indentLine'
@@ -19,7 +20,7 @@ Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 "Plug 'godlygeek/tabular'
 "Plug 'plasticboy/vim-markdown'
 "Plug 'suan/vim-instant-markdown', 	{'for': 'markdown'}
-"Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang',  'for': ['c', 'cpp'] }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }
 "Plug 'vim-syntastic/syntastic'
 call plug#end()
 
