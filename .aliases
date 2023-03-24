@@ -1,11 +1,7 @@
-alias p="cd ~/project"
 alias g="git"
-
-
 alias ls="ls -G"
 alias ll="ls -lhAG"
 alias grep="grep --color=auto"
-alias path='echo -e ${PATH//:/\\n}'
 alias mv="mv -i"
 alias ..="cd .."
 alias ...="cd ../.."
