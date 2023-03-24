@@ -16,6 +16,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'Lokaltog/vim-powerline'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+Plug 'google/vim-jsonnet'
 
 "Plug 'godlygeek/tabular'
 "Plug 'plasticboy/vim-markdown'
