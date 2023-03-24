@@ -62,6 +62,7 @@ func! Compile()
 		exec "!javac %"
 	endif
 endfunc
+
 func! Run()
 	exec "w"
 	if expand("%:e")=="cpp"
@@ -70,6 +71,7 @@ func! Run()
 		exec "!time java %<"
 	endif
 endfunc
+
 noremap <F9> :call Compile()<CR>
 noremap <F10> :call Run()<CR>
 noremap + <C-W>10+
