@@ -17,12 +17,13 @@ Plug 'Lokaltog/vim-powerline'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'google/vim-jsonnet'
+Plugin 'google/vim-maktaba'
+Plugin 'google/vim-codefmt'
+" Also add Glaive, which is used to configure codefmt's maktaba flags. See
+" `:help :Glaive` for usage.
+Plugin 'google/vim-glaive'
 
-"Plug 'godlygeek/tabular'
-"Plug 'plasticboy/vim-markdown'
-"Plug 'suan/vim-instant-markdown', 	{'for': 'markdown'}
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }
-"Plug 'vim-syntastic/syntastic'
 call plug#end()
 
 syntax enable
@@ -131,3 +132,12 @@ let g:NERDTrimTrailingWhitespace = 1
 
 " Enable NERDCommenterToggle to check all selected lines is commented or not
 let g:NERDToggleCheckAllLines = 1
+
+call glaive#Install()
+" C++
+Glaive codefmt clang_format_style="{BasedOnStyle: Google, IndentWidth: 2, ColumnLimit: 100, BinPackArguments: false, BinPackParameters: false, DerivePointerAlignment: false, PointerAlignment: Left}"
+
+" Python: Disable autopep8 to let plugin pick up yapf.
+Glaive codefmt autopep8_executable="null"
+
+
