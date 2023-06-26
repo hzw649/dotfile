@@ -24,7 +24,7 @@ Plugin 'google/vim-codefmt'
 Plugin 'google/vim-glaive'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
-
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }
 call plug#end()
 
