@@ -1,30 +1,21 @@
-set nocompatible
-set nu
-set ruler
-set mouse=a
-set shiftwidth=4
-set tabstop=4
-set number
-set t_Co=256
-set completeopt-=preview
-set shortmess+=I
-
-call plug#begin('~/.vim/plugged')
-Plug 'mhartington/oceanic-next'
-Plug 'Yggdroot/indentLine'
 Plug 'scrooloose/nerdtree'
 Plug 'Lokaltog/vim-powerline'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'google/vim-jsonnet'
-Plugin 'google/vim-maktaba'
-Plugin 'google/vim-codefmt'
+Plug 'google/vim-maktaba'
+Plug 'google/vim-codefmt'
 " Also add Glaive, which is used to configure codefmt's maktaba flags. See
 " `:help :Glaive` for usage.
-Plugin 'google/vim-glaive'
+Plug 'google/vim-glaive'
+Plug 'bazelbuild/vim-bazel'
+
+Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }
 call plug#end()
 
@@ -80,9 +71,17 @@ noremap <F10> :call Run()<CR>
 noremap + <C-W>10+
 noremap - <C-W>10-
 
+execute "set <M-q>=\eq"
+execute "set <M-w>=\ew"
+noremap <M-q> :tabp<CR>
+noremap <M-w> :tabn<CR>
+
+map <F3> :call yapf#YAPF()<cr>
+
 "NERDTree
 "F2开启和关闭树"
 map <F2> :NERDTreeToggle<CR>
+map <F5> :NERDTreeFind<CR>
 let NERDTreeChDirMode=1
 "显示书签"
 let NERDTreeShowBookmarks=1
@@ -98,15 +97,10 @@ let g:indentLine_conceallevel = 2
 let g:indentLine_concealcursor = ' '
 
 
-"let g:instant_markdown_slow = 1
-"let g:instant_markdown_autostart = 0
-"map <F4> :InstantMarkdownPreview<CR>
-
 
 
 "YouCompleteMe
 "let g:ycm_server_python_interpreter='/usr/bin/python'
-let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py'
 let g:ycm_auto_trigger = 1
 
 " 自动补全配置  
@@ -139,6 +133,7 @@ let g:NERDTrimTrailingWhitespace = 1
 " Enable NERDCommenterToggle to check all selected lines is commented or not
 let g:NERDToggleCheckAllLines = 1
 
+
 call glaive#Install()
 " C++
 Glaive codefmt clang_format_style="{BasedOnStyle: Google, IndentWidth: 2, ColumnLimit: 100, BinPackArguments: false, BinPackParameters: false, DerivePointerAlignment: false, PointerAlignment: Left}"
@@ -146,4 +141,12 @@ Glaive codefmt clang_format_style="{BasedOnStyle: Google, IndentWidth: 2, Column
 " Python: Disable autopep8 to let plugin pick up yapf.
 Glaive codefmt autopep8_executable="null"
 
+let g:coc_disable_startup_warning = 1
+    
+let g:Lf_RootMarkers = ['WORKSPACE']
+let g:Lf_WorkingDirectoryMode = 'Ac'
+let g:Lf_WindowPosition = 'popup'
+let g:Lf_ShowDevIcons = 0
+let g:Lf_CommandMap = {'<C-K>': ['<Up>'], '<C-J>': ['<Down>']}
 
+set tags=./tags,tags;
