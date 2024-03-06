@@ -30,7 +30,6 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 
-
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }
 call plug#end()
 
@@ -109,10 +108,6 @@ let g:indentLine_char='|'
 let g:indentLine_enabled = 1
 let g:indentLine_setConceal = 1
 let g:indentLine_conceallevel = 2
-let g:indentLine_concealcursor = ' '
-
-
-
 
 "YouCompleteMe
 "let g:ycm_server_python_interpreter='/usr/bin/python'
